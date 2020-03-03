@@ -50,6 +50,7 @@ def listen(server, port, pwd, nick, channel):
 
         # Twitch will periodically send keyword PING to check for connection
         if resp.startswith("PING"):
+            logging.info("Got ping request")
             sock.send("PONG\n".encode("utf-8"))
         elif len(resp) > 0:
             logging.info(resp)
